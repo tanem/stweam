@@ -1,3 +1,7 @@
+## 0.1.2
+
+ * Update version badge link
+ 
 ## 0.1.1
 
  * Update docs

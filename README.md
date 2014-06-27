@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tanem/stweam.png?branch=master)](https://travis-ci.org/tanem/stweam)
 [![Coverage Status](https://coveralls.io/repos/tanem/stweam/badge.png?branch=master)](https://coveralls.io/r/tanem/stweam)
-[![NPM version](https://badge.fury.io/js/stweam.png)](http://badge.fury.io/js/stweam)
+[![NPM version](https://badge.fury.io/js/stweam.svg)](http://badge.fury.io/js/stweam)
 
 A module that connects to the public Twitter stream, returning statuses for tracked keywords.
 
