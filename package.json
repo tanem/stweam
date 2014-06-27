@@ -1,0 +1,45 @@
+{
+  "name": "stweam",
+  "version": "0.1.0",
+  "description": "Connects to the public Twitter stream, returning statuses for tracked keywords.",
+  "main": "index.js",
+  "homepage": "https://github.com/tanem/stweam",
+  "bugs": {
+    "url": "http://github.com/tanem/stweam/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tanem/stweam.git"
+  },
+  "scripts": {
+    "test": "make test-coveralls"
+  },
+  "engines": {
+    "node": ">= 0.11.0"
+  },
+  "keywords": [
+    "twitter",
+    "tweets",
+    "streams",
+    "streaming"
+  ],
+  "author": {
+    "name": "Tane Morgan",
+    "url": "http://github.com/tanem"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.36.0",
+    "co": "^3.0.6",
+    "co-sleep": "0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "expect.js": "^0.3.1",
+    "sinon": "^1.10.2",
+    "rewire": "^2.0.1",
+    "jshint": "^2.5.1",
+    "coveralls": "^2.10.1",
+    "istanbul": "git://github.com/gotwarlost/istanbul.git#harmony"
+  }
+}
