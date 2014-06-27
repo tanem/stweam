@@ -1,6 +1,6 @@
 {
   "name": "stweam",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Connects to the public Twitter stream, returning statuses for tracked keywords.",
   "main": "index.js",
   "homepage": "https://github.com/tanem/stweam",

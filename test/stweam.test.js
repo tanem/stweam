@@ -155,6 +155,16 @@ describe('Stweam', function(){
       expect(unpipeStub.args[0][0]).to.eql(publisher);
     });
 
+    it('should remove all listeners for an existing publisher\'s tweet event', function(){
+      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      var publisher = stweam.publisher = new stream.PassThrough();
+      var removeAllListenersStub = sinon.stub(publisher, 'removeAllListeners');
+
+      stweam._start();
+
+      expect(removeAllListenersStub.args[0][0]).to.eql('tweet');
+    });
+
   });
 
   describe('upon receiving a response', function(){
@@ -339,6 +349,23 @@ describe('Stweam', function(){
       });
       stweam.publisher.on('data', function(chunk){
         expect(chunk.toString()).to.be('foo bar baz');
+      });
+
+      response.end(new Buffer('foo bar baz'));
+    });
+
+    it('should emit tweets', function(done){
+      var Parser = stream.PassThrough;
+      var response = new stream.PassThrough();
+      Stweam.__set__('Parser', Parser);
+      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+
+      stweam._start();
+      stweam.request.emit('response', response);
+
+      stweam.on('tweet', function(tweet){
+        expect(tweet).to.be('foo bar baz');
+        done();
       });
 
       response.end(new Buffer('foo bar baz'));

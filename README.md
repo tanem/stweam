@@ -30,6 +30,10 @@ var stweam = new Stweam({
   tokenSecret: 'tokenSecret'
 });
 
+stweam.on('tweet', function(tweet){
+  // Do something with the tweet.  
+});
+
 stweam.track('beaker');
 ```
 
