@@ -31,6 +31,10 @@ var stweam = new Stweam({
   tokenSecret: 'tokenSecret'
 });
 
+stweam.on('info', function(msg){
+  // Do something with the log msg.
+});
+
 stweam.on('tweet', function(tweet){
   // Do something with the tweet.  
 });
@@ -67,6 +71,10 @@ then starts the app or reconnects if there was already an existing connection.
 ### tweet
 
 Emitted each time tweet text is written to `Stweam`.
+
+### info
+
+Emitted to provide detail about regular operation.
 
 ## Testing
 
