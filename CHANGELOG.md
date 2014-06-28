@@ -1,3 +1,7 @@
+## 0.2.1
+
+ * Stream tweet text directly to `Stweam`
+
 ## 0.2.0
 
  * Let's actually emit some tweets... heh

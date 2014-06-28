@@ -144,25 +144,14 @@ describe('Stweam', function(){
       expect(requestStub.abort.calledOnce).to.be(true);
     });
 
-    it('should ensure the parser is unpiped from the publisher', function(){
+    it('should ensure the parser is unpiped from itself', function(){
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
-      var publisher = stweam.publisher = new stream.PassThrough();
       var parserStream = stweam.parserStream = new stream.PassThrough();
       var unpipeStub = sinon.stub(parserStream, 'unpipe');
 
       stweam._start();
 
-      expect(unpipeStub.args[0][0]).to.eql(publisher);
-    });
-
-    it('should remove all listeners for an existing publisher\'s tweet event', function(){
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
-      var publisher = stweam.publisher = new stream.PassThrough();
-      var removeAllListenersStub = sinon.stub(publisher, 'removeAllListeners');
-
-      stweam._start();
-
-      expect(removeAllListenersStub.args[0][0]).to.eql('tweet');
+      expect(unpipeStub.args[0][0]).to.eql(stweam);
     });
 
   });
@@ -171,10 +160,8 @@ describe('Stweam', function(){
     
     it('should attempt reconnection after 90s if no data is received', function(){
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -188,10 +175,8 @@ describe('Stweam', function(){
 
     it('should cancel the stall timeout if data is received', function(){
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -217,9 +202,7 @@ describe('Stweam', function(){
         }
       );
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -243,10 +226,8 @@ describe('Stweam', function(){
         }
       );
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -271,10 +252,8 @@ describe('Stweam', function(){
         }
       );
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -299,10 +278,8 @@ describe('Stweam', function(){
         }
       );
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -321,10 +298,8 @@ describe('Stweam', function(){
     it('should reset the backoff strategies', function(){
       var backoffStub = sinon.stub(stweam, '_initBackoffs');
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -333,12 +308,10 @@ describe('Stweam', function(){
       expect(backoffStub.calledOnce).to.be(true);
     });
 
-    it('should pipe the twitter response through the parser and on to the publisher', function(){
+    it('should pipe the twitter response through the parser and back to itself', function(){
       var Parser = stream.PassThrough;
-      var Publisher = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      Stweam.__set__('Publisher', Publisher);
       sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
 
       stweam._start();
@@ -347,7 +320,7 @@ describe('Stweam', function(){
       stweam.parser.on('data', function(chunk){
         expect(chunk.toString()).to.be('foo bar baz');
       });
-      stweam.publisher.on('data', function(chunk){
+      stweam.on('data', function(chunk){
         expect(chunk.toString()).to.be('foo bar baz');
       });
 

@@ -20,7 +20,8 @@ $ npm install stweam --save
 ## Example
 
 ```js
-// example.js
+// => example.js
+
 var Stweam = require('stweam');
 
 var stweam = new Stweam({
@@ -60,6 +61,12 @@ Initialise a new `Stweam` with the given `opts`.
 
 Sets the phrases that will determine what is delivered on the stream,
 then starts the app or reconnects if there was already an existing connection.
+
+## Events
+
+### tweet
+
+Emitted each time tweet text is written to `Stweam`.
 
 ## Testing
 
