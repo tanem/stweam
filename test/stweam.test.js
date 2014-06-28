@@ -218,9 +218,9 @@ describe('Stweam', function(){
   describe('upon receiving a 420 response code', function(){
 
     it('should attempt reconnects according to the rate limited backoff strategy', function(){
-      var http420ErrorBackoffStub = sinon.stub(
+      var rateLimitedErrorBackoffStub = sinon.stub(
         stweam,
-        'http420ErrorBackoff',
+        'rateLimitedErrorBackoff',
         function(cb){
           cb();
         }
@@ -235,7 +235,7 @@ describe('Stweam', function(){
       response.statusCode = 420;
       stweam.request.emit('response', response);
 
-      expect(http420ErrorBackoffStub.calledOnce).to.be(true);
+      expect(rateLimitedErrorBackoffStub.calledOnce).to.be(true);
       expect(startStub.calledOnce).to.be(true);
     });
 
@@ -244,9 +244,9 @@ describe('Stweam', function(){
   describe('upon receiving a response code >= 500', function(){
 
     it('should attempt reconnects according to the rate limited backoff strategy', function(){
-      var http420ErrorBackoffStub = sinon.stub(
+      var rateLimitedErrorBackoffStub = sinon.stub(
         stweam,
-        'http420ErrorBackoff',
+        'rateLimitedErrorBackoff',
         function(cb){
           cb();
         }
@@ -261,7 +261,7 @@ describe('Stweam', function(){
       response.statusCode = 500;
       stweam.request.emit('response', response);
 
-      expect(http420ErrorBackoffStub.calledOnce).to.be(true);
+      expect(rateLimitedErrorBackoffStub.calledOnce).to.be(true);
       expect(startStub.calledOnce).to.be(true);
     });
 
