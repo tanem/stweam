@@ -1,24 +1,28 @@
-## 0.2.1
+## v0.2.2
 
- * Stream tweet text directly to `Stweam`
+ * Add info events
 
-## 0.2.0
+## v0.2.1
+
+ * Stream tweet text directly to Stweam
+
+## v0.2.0
 
  * Let's actually emit some tweets... heh
 
-## 0.1.3
+## v0.1.3
 
  * Update coveralls badge link
 
-## 0.1.2
+## v0.1.2
 
  * Update version badge link
 
-## 0.1.1
+## v0.1.1
 
  * Update docs
- * Remove event emitting from `Stweam` class
+ * Remove event emitting from Stweam class
 
-## 0.1.0
+## v0.1.0
 
  * Initialised
