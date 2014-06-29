@@ -1,6 +1,7 @@
 ## v0.2.3
 
  * Document default language
+ * Add .npmignore
 
 ## v0.2.2
 
