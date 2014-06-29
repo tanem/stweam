@@ -66,6 +66,8 @@ Initialise a new `Stweam` with the given `opts`.
 Sets the phrases that will determine what is delivered on the stream,
 then starts the app or reconnects if there was already an existing connection.
 
+Note that the default [language](https://dev.twitter.com/docs/streaming-apis/parameters#language) is `en`.
+
 ## Events
 
 ### tweet

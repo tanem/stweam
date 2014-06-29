@@ -1,6 +1,11 @@
+## v0.2.3
+
+ * Document default language
+
 ## v0.2.2
 
  * Add info events
+ * Update rate limited backoff strategy name
 
 ## v0.2.1
 
