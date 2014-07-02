@@ -1,4 +1,4 @@
-REPORTER = spec
+REPORTER=spec
 
 lint:
 	@./node_modules/.bin/jshint ./lib/*.js ./test/*.js index.js
@@ -19,4 +19,4 @@ test-coveralls:
 	./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && \
 		cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true
 
-.PHONY: test
+.PHONY: lint test test-cov test-coveralls
