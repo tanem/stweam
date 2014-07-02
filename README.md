@@ -50,7 +50,7 @@ $ node --harmony example.js
 
 ## API
 
-### new Stweam(opts:Object)
+### var stweam = new Stweam(opts)
 
 Initialise a new `Stweam` with the given `opts`.
 
@@ -61,7 +61,7 @@ Initialise a new `Stweam` with the given `opts`.
  * token
  * tokenSecret
 
-### Stweam#track(keywords:String)
+### stweam.track(keywords)
 
 Sets the phrases that will determine what is delivered on the stream,
 then starts the app or reconnects if there was already an existing connection.
@@ -70,13 +70,13 @@ Note that the default [language](https://dev.twitter.com/docs/streaming-apis/par
 
 ## Events
 
-### tweet
+### stweam.on('tweet', function(tweet){})
 
 Emitted each time tweet text is written to `Stweam`.
 
-### info
+### stweam.on('info', function(msg){})
 
-Emitted to provide detail about regular operation.
+Provides detail about regular operation, rather than spamming stdout.
 
 ## Testing
 
