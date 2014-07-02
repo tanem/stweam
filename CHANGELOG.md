@@ -1,3 +1,8 @@
+## v0.2.4
+
+ * Update docs
+ * Tweak Makefile
+ 
 ## v0.2.3
 
  * Document default language
