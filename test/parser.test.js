@@ -10,7 +10,7 @@ describe('Parser', function(){
     parser = new Parser();
   });
 
-  it('should parse tweet text from an object', function(done){
+  it('should parse the buffer and push the tweet object', function(done){
     var source = stream.PassThrough();
     source.pipe(parser);
     source.write(new Buffer('{ "text"'));
@@ -19,7 +19,7 @@ describe('Parser', function(){
 
     parser
       .on('data', function(chunk){
-        expect(chunk.toString()).to.be('bar');
+        expect(chunk).to.eql({ text: 'bar' });
       })
       .on('end', done);
   });

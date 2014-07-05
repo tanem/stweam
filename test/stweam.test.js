@@ -92,14 +92,14 @@ describe('Stweam', function(){
 
   });
 
-  describe('connect', function(){
+  describe('Twitter request', function(){
 
     it('should POST with the correct parameters', function(){
       var postStub = sinon.stub();
       Stweam.__set__('request', { post: postStub });
       stweam._keywords = 'surfing';
 
-      stweam._connect();
+      stweam._getRequest();
 
       expect(postStub.args[0][0]).to.eql({
         url: 'https://stream.twitter.com/1.1/statuses/filter.json',
@@ -127,9 +127,9 @@ describe('Stweam', function(){
         clearTimeout: clearTimeoutStub
       });
       stweam.stallTimeout = {};
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
+      stweam.start();
 
       expect(clearTimeoutStub.args[0][0]).to.be(stweam.stallTimeout);
     });
@@ -137,19 +137,19 @@ describe('Stweam', function(){
     it('should abort an existing request', function(){
       var requestStub = { abort: sinon.stub() };
       stweam.request = requestStub;
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
+      stweam.start();
 
       expect(requestStub.abort.calledOnce).to.be(true);
     });
 
     it('should ensure the parser is unpiped from itself', function(){
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
       var parserStream = stweam.parserStream = new stream.PassThrough();
       var unpipeStub = sinon.stub(parserStream, 'unpipe');
 
-      stweam._start();
+      stweam.start();
 
       expect(unpipeStub.args[0][0]).to.eql(stweam);
     });
@@ -162,14 +162,14 @@ describe('Stweam', function(){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
-      var startStub = sinon.stub(stweam, '_start');
+      stweam.start();
+      var connectStub = sinon.stub(stweam, '_connect');
       stweam.request.emit('response', response);
       clock.tick(1000 * 90);
 
-      expect(startStub.calledOnce).to.be(true);
+      expect(connectStub.calledOnce).to.be(true);
       clock.restore();
     });
 
@@ -177,15 +177,15 @@ describe('Stweam', function(){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
-      var startStub = sinon.stub(stweam, '_start');
+      stweam.start();
+      var connectStub = sinon.stub(stweam, '_connect');
       stweam.request.emit('response', response);
       response.emit('data', new Buffer(''));
       clock.tick(1000 * 90);
 
-      expect(startStub.calledOnce).to.be(false);
+      expect(connectStub.calledOnce).to.be(false);
       clock.restore();
     });
 
@@ -203,14 +203,14 @@ describe('Stweam', function(){
       );
       var Parser = stream.PassThrough;
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
-      var startStub = sinon.stub(stweam, '_start');
+      stweam.start();
+      var connectStub = sinon.stub(stweam, '_connect');
       stweam.request.emit('error');
 
       expect(networkErrorBackoffStub.calledOnce).to.be(true);
-      expect(startStub.calledOnce).to.be(true);
+      expect(connectStub.calledOnce).to.be(true);
     });
 
   });
@@ -228,15 +228,15 @@ describe('Stweam', function(){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
-      var startStub = sinon.stub(stweam, '_start');
+      stweam.start();
+      var connectStub = sinon.stub(stweam, '_connect');
       response.statusCode = 420;
       stweam.request.emit('response', response);
 
       expect(rateLimitedErrorBackoffStub.calledOnce).to.be(true);
-      expect(startStub.calledOnce).to.be(true);
+      expect(connectStub.calledOnce).to.be(true);
     });
 
   });
@@ -254,15 +254,15 @@ describe('Stweam', function(){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
-      var startStub = sinon.stub(stweam, '_start');
+      stweam.start();
+      var connectStub = sinon.stub(stweam, '_connect');
       response.statusCode = 500;
       stweam.request.emit('response', response);
 
       expect(rateLimitedErrorBackoffStub.calledOnce).to.be(true);
-      expect(startStub.calledOnce).to.be(true);
+      expect(connectStub.calledOnce).to.be(true);
     });
 
   });
@@ -280,15 +280,15 @@ describe('Stweam', function(){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
-      var startStub = sinon.stub(stweam, '_start');
+      stweam.start();
+      var connectStub = sinon.stub(stweam, '_connect');
       response.statusCode = 401;
       stweam.request.emit('response', response);
 
       expect(httpErrorBackoffStub.calledOnce).to.be(true);
-      expect(startStub.calledOnce).to.be(true);
+      expect(connectStub.calledOnce).to.be(true);
     });
 
   });
@@ -300,61 +300,76 @@ describe('Stweam', function(){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
-      stweam._start();
+      stweam.start();
       stweam.request.emit('response', response);
 
       expect(backoffStub.calledOnce).to.be(true);
     });
 
-    it('should pipe the twitter response through the parser and back to itself', function(){
+    it('should pipe the twitter response through the parser and back to itself', function(done){
       var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
+      stweam.receive(['foo']);
 
-      stweam._start();
+      stweam.start();
       stweam.request.emit('response', response);
 
       stweam.parser.on('data', function(chunk){
-        expect(chunk.toString()).to.be('foo bar baz');
+        expect(chunk).not.to.be(undefined);
       });
-      stweam.on('data', function(chunk){
-        expect(chunk.toString()).to.be('foo bar baz');
-      });
+      stweam
+        .on('data', function(chunk){
+          expect(chunk).not.to.be(undefined);
+        })
+        .on('end', done);
 
-      response.end(new Buffer('foo bar baz'));
+      response.end(new Buffer('{ "foo": "bar" }\r\n'));
     });
 
-    it('should emit tweets', function(done){
-      var Parser = stream.PassThrough;
-      var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
-      sinon.stub(stweam, '_connect').returns(new events.EventEmitter());
+    // We know the piping is set up correctly from the above test,
+    // so just checking `push` is called correctly.
+    it('should push result objects based on the receive property', function(){
+      var pushStub = sinon.stub(stweam, 'push');
+      stweam.receive(['foo']);
 
-      stweam._start();
-      stweam.request.emit('response', response);
+      stweam._transform({
+        foo: 'bar',
+        baz: 'qux'
+      }, null, function(){});
 
-      stweam.on('tweet', function(tweet){
-        expect(tweet).to.be('foo bar baz');
-        done();
-      });
-
-      response.end(new Buffer('foo bar baz'));
+      expect(pushStub.args[0]).to.eql([{ foo: 'bar' }]);
     });
 
   });
   
   describe('track method', function(){
 
-    it('should update the keywords property and reconnect', function(){
-      var startStub = sinon.stub(stweam, '_start');
-
+    it('should update the keywords property', function(){
       stweam.track('foo');
-
       expect(stweam._keywords).to.be('foo');
-      expect(startStub.calledOnce).to.be(true);
+    });
+
+  });
+
+  describe('receive method', function(){
+
+    it('should update the receive property', function(){
+      stweam.receive(['foo', 'bar']);
+      expect(stweam._receive).to.eql(['foo', 'bar']);
+    });
+
+  });
+
+  describe('start method', function(){
+
+    it('should start the app', function(){
+      var connectStub = sinon.stub(stweam, '_connect');
+      stweam.start();
+      expect(connectStub.calledOnce).to.be(true);
     });
 
   });

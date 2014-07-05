@@ -6,16 +6,19 @@
 
 A module that connects to the public Twitter stream, returning statuses for tracked keywords.
 
+
 ## Requirements
 
  * Node.js version 0.11.x (for the `harmony` flag which exposes generators)
  * Keys obtained from dev.twitter.com after [setting up a new app](https://apps.twitter.com/app/new)
+
 
 ## Installation
 
 ```sh
 $ npm install stweam --save
 ```
+
 
 ## Example
 
@@ -35,11 +38,21 @@ stweam.on('info', function(msg){
   // Do something with the log msg.
 });
 
-stweam.on('tweet', function(tweet){
+stweam.on('data', function(tweet){
   // Do something with the tweet.  
 });
 
+// You can also pipe the output to some destination:
+// stweam.pipe(new stream.Writable());
+
+// Set a keyword to track.
 stweam.track('beaker');
+
+// Set the properties to be received.
+stweam.receive(['text'])
+
+// Start the app.
+stweam.start();
 ```
 
 To run:
@@ -47,6 +60,7 @@ To run:
 ```sh
 $ node --harmony example.js
 ```
+
 
 ## API
 
@@ -63,20 +77,29 @@ Initialise a new `Stweam` with the given `opts`.
 
 ### stweam.track(keywords)
 
-Sets the phrases that will determine what is delivered on the stream,
-then starts the app or reconnects if there was already an existing connection.
+Sets the phrases that will determine what is delivered on the stream.
 
 Note that the default [language](https://dev.twitter.com/docs/streaming-apis/parameters#language) is `en`.
 
+### stweam.receive(receive)
+
+Set the tweet object properties to return.
+
+### stweam.start()
+
+Start the app.
+
+
 ## Events
 
-### stweam.on('tweet', function(tweet){})
+### stweam.on('data', function(result){})
 
-Emitted each time tweet text is written to `Stweam`.
+Emitted each time a tweet object is written to `Stweam`. Note that `Stweam` is also an instance of `stream.Transform`, so tweet objects can be piped to some destination.
 
 ### stweam.on('info', function(msg){})
 
 Provides detail about regular operation, rather than spamming stdout.
+
 
 ## Testing
 
@@ -89,6 +112,7 @@ To generate a coverage report:
 ```sh
 $ make test-cov
 ```
+
 
 ## Credits
 
