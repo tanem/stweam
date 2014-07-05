@@ -41,8 +41,8 @@ stweam.on('data', function(tweet){
   // Do something with the tweet.  
 });
 
-// You can also pipe the output to some destination:
-// stweam.pipe(new stream.Writable());
+// You can also pipe the output to some destination.
+// stweam.pipe(...);
 
 // Set a keyword to track.
 stweam.track('beaker');
@@ -80,9 +80,13 @@ Sets the phrases that will determine what is delivered on the stream.
 
 Note that the default [language](https://dev.twitter.com/docs/streaming-apis/parameters#language) is `en`.
 
+See: [track](https://dev.twitter.com/docs/streaming-apis/parameters#track).
+
 ### stweam.receive(receive)
 
 Set the tweet object properties to return.
+
+See: [tweets](https://dev.twitter.com/docs/platform-objects/tweets).
 
 ### stweam.start()
 
