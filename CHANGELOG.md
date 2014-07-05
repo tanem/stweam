@@ -1,3 +1,7 @@
+## v0.3.1
+
+ * Update description
+ 
 ## v0.3.0
 
  * Turn `Stweam` into a `Transform` stream
