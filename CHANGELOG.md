@@ -1,7 +1,11 @@
+## v0.6.0
+
+ * Update README
+ 
 ## v0.5.0
 
  * Add `language` method
- 
+
 ## v0.4.0
 
  * Push the entire tweet object if the receive array is empty

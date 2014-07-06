@@ -34,11 +34,11 @@ var stweam = new Stweam({
 });
 
 stweam.on('info', function(msg){
-  // Do something with the log msg.
+  // Do something with msg.
 });
 
 stweam.on('data', function(tweet){
-  // Do something with the tweet.  
+  // Do something with tweet.  
 });
 
 // You can also pipe the output to some destination.
@@ -47,8 +47,11 @@ stweam.on('data', function(tweet){
 // Set a keyword to track.
 stweam.track('beaker');
 
-// Set the tweet object properties to be received.
-stweam.receive(['text'])
+// Set the Tweet object properties to be received.
+stweam.receive(['text']);
+
+// Set the Tweet language.
+stweam.language('fr');
 
 // Start the app.
 stweam.start();
