@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/tanem/stweam/badge.png?branch=master)](https://coveralls.io/r/tanem/stweam?branch=master)
 [![NPM version](https://badge.fury.io/js/stweam.svg)](http://badge.fury.io/js/stweam)
 
-Returns tweet data from the public Twitter stream.
+Returns Tweet data from the public Twitter stream.
 
 ## Requirements
 
@@ -76,18 +76,22 @@ Initialise a new `Stweam` with the given `opts`.
 
 ### stweam.track(keywords)
 
-Sets the phrases that will determine what is delivered on the stream.
-
-Note that the default [language](https://dev.twitter.com/docs/streaming-apis/parameters#language) is `en`.
+Set the phrases that will determine what is delivered on the stream.
 
 See: [track](https://dev.twitter.com/docs/streaming-apis/parameters#track).
 
 ### stweam.receive(receive)
 
-Set the tweet object properties to return. Default to an empty array, in which
-case the entire tweet object will be returned.
+Set the Tweet object properties to return. Defaults to an empty array, in which
+case the entire Tweet object will be returned.
 
 See: [tweets](https://dev.twitter.com/docs/platform-objects/tweets).
+
+### stweam.language(language)
+
+Set the Tweet language, defaults to `en`.
+
+See: [language](https://dev.twitter.com/docs/streaming-apis/parameters#language)
 
 ### stweam.start()
 
@@ -98,7 +102,7 @@ Start the app.
 
 ### stweam.on('data', function(result){})
 
-Emitted each time a tweet object is written to `Stweam`. Note that `Stweam` is also an instance of `stream.Transform`, so tweet objects can be piped to some destination.
+Emitted each time a Tweet object is written to `Stweam`. Note that `Stweam` is also an instance of `stream.Transform`, so Tweet objects can be piped to some destination.
 
 ### stweam.on('info', function(msg){})
 

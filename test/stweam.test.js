@@ -379,6 +379,15 @@ describe('Stweam', function(){
 
   });
 
+  describe('language method', function(){
+
+    it('should update the language property', function(){
+      stweam.language('foo');
+      expect(stweam._language).to.eql('foo');
+    });
+
+  });
+
   describe('start method', function(){
 
     it('should start the app', function(){
