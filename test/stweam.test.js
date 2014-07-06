@@ -344,6 +344,21 @@ describe('Stweam', function(){
       expect(pushStub.args[0]).to.eql([{ foo: 'bar' }]);
     });
 
+    it('should push the entire result object if the receive property is empty', function(){
+      var pushStub = sinon.stub(stweam, 'push');
+      stweam.receive([]);
+
+      stweam._transform({
+        foo: 'bar',
+        baz: 'qux'
+      }, null, function(){});
+
+      expect(pushStub.args[0]).to.eql([{
+        foo: 'bar',
+        baz: 'qux'
+      }]);
+    });
+
   });
   
   describe('track method', function(){

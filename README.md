@@ -84,7 +84,8 @@ See: [track](https://dev.twitter.com/docs/streaming-apis/parameters#track).
 
 ### stweam.receive(receive)
 
-Set the tweet object properties to return.
+Set the tweet object properties to return. Default to an empty array, in which
+case the entire tweet object will be returned.
 
 See: [tweets](https://dev.twitter.com/docs/platform-objects/tweets).
 

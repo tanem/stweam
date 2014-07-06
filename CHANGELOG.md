@@ -1,7 +1,11 @@
+## v0.4.0
+
+ * Push the entire tweet object if the receive array is empty
+
 ## v0.3.2
 
  * Update README
- 
+
 ## v0.3.1
 
  * Update description
