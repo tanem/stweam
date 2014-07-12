@@ -44,17 +44,10 @@ stweam.on('data', function(tweet){
 // You can also pipe the output to some destination.
 // stweam.pipe(...);
 
-// Set a keyword to track.
-stweam.track('beaker');
-
-// Set the Tweet object properties to be received.
-stweam.receive(['text']);
-
-// Set the Tweet language.
-stweam.language('fr');
-
-// Start the app.
-stweam.start();
+stweam
+  .language('fr');
+  .track('beaker')
+  .start();
 ```
 
 To run:
@@ -82,13 +75,6 @@ Initialise a new `Stweam` with the given `opts`.
 Set the phrases that will determine what is delivered on the stream.
 
 See: [track](https://dev.twitter.com/docs/streaming-apis/parameters#track).
-
-### stweam.receive(receive)
-
-Set the Tweet object properties to return. Defaults to an empty array, in which
-case the entire Tweet object will be returned.
-
-See: [tweets](https://dev.twitter.com/docs/platform-objects/tweets).
 
 ### stweam.language(language)
 

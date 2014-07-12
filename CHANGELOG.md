@@ -1,3 +1,7 @@
+## v0.7.0
+
+ * Remove object mode streaming
+ 
 ## v0.6.0
 
  * Update README

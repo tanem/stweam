@@ -313,7 +313,6 @@ describe('Stweam', function(){
       var response = new stream.PassThrough();
       Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
-      stweam.receive(['foo']);
 
       stweam.start();
       stweam.request.emit('response', response);
@@ -332,31 +331,10 @@ describe('Stweam', function(){
 
     // We know the piping is set up correctly from the above test,
     // so just checking `push` is called correctly.
-    it('should push result objects based on the receive property', function(){
+    it('should push the tweet', function(){
       var pushStub = sinon.stub(stweam, 'push');
-      stweam.receive(['foo']);
-
-      stweam._transform({
-        foo: 'bar',
-        baz: 'qux'
-      }, null, function(){});
-
-      expect(pushStub.args[0]).to.eql([{ foo: 'bar' }]);
-    });
-
-    it('should push the entire result object if the receive property is empty', function(){
-      var pushStub = sinon.stub(stweam, 'push');
-      stweam.receive([]);
-
-      stweam._transform({
-        foo: 'bar',
-        baz: 'qux'
-      }, null, function(){});
-
-      expect(pushStub.args[0]).to.eql([{
-        foo: 'bar',
-        baz: 'qux'
-      }]);
+      stweam._transform('{ "foo": "bar", "baz": "qux" }', null, function(){});
+      expect(pushStub.args[0][0]).to.eql('{ "foo": "bar", "baz": "qux" }');
     });
 
   });
@@ -366,15 +344,6 @@ describe('Stweam', function(){
     it('should update the keywords property', function(){
       stweam.track('foo');
       expect(stweam._keywords).to.be('foo');
-    });
-
-  });
-
-  describe('receive method', function(){
-
-    it('should update the receive property', function(){
-      stweam.receive(['foo', 'bar']);
-      expect(stweam._receive).to.eql(['foo', 'bar']);
     });
 
   });
