@@ -144,24 +144,12 @@ describe('Stweam', function(){
       expect(requestStub.abort.calledOnce).to.be(true);
     });
 
-    it('should ensure the parser is unpiped from itself', function(){
-      sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
-      var parserStream = stweam.parserStream = new stream.PassThrough();
-      var unpipeStub = sinon.stub(parserStream, 'unpipe');
-
-      stweam.start();
-
-      expect(unpipeStub.args[0][0]).to.eql(stweam);
-    });
-
   });
 
   describe('upon receiving a response', function(){
     
     it('should attempt reconnection after 90s if no data is received', function(){
-      var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -174,9 +162,7 @@ describe('Stweam', function(){
     });
 
     it('should cancel the stall timeout if data is received', function(){
-      var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -201,8 +187,6 @@ describe('Stweam', function(){
           cb();
         }
       );
-      var Parser = stream.PassThrough;
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -225,9 +209,7 @@ describe('Stweam', function(){
           cb();
         }
       );
-      var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -251,9 +233,7 @@ describe('Stweam', function(){
           cb();
         }
       );
-      var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -277,9 +257,7 @@ describe('Stweam', function(){
           cb();
         }
       );
-      var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -297,9 +275,7 @@ describe('Stweam', function(){
   
     it('should reset the backoff strategies', function(){
       var backoffStub = sinon.stub(stweam, '_initBackoffs');
-      var Parser = stream.PassThrough;
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
@@ -308,21 +284,16 @@ describe('Stweam', function(){
       expect(backoffStub.calledOnce).to.be(true);
     });
 
-    it('should pipe the twitter response through the parser and back to itself', function(done){
-      var Parser = stream.PassThrough;
+    it('should pipe the twitter response through itself', function(done){
       var response = new stream.PassThrough();
-      Stweam.__set__('Parser', Parser);
       sinon.stub(stweam, '_getRequest').returns(new events.EventEmitter());
 
       stweam.start();
       stweam.request.emit('response', response);
 
-      stweam.parser.on('data', function(chunk){
-        expect(chunk).not.to.be(undefined);
-      });
       stweam
         .on('data', function(chunk){
-          expect(chunk).not.to.be(undefined);
+          expect(chunk.toString()).to.be('{ "foo": "bar" }\r\n');
         })
         .on('end', done);
 

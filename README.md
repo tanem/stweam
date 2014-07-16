@@ -6,6 +6,8 @@
 
 Returns Tweet data from the public Twitter stream.
 
+Note that the "raw" Twitter stream is returned, so you'll need to [process it appropriately](https://dev.twitter.com/docs/streaming-apis/processing). Processing was deliberately left out of this module, so that you can choose your poison(s) via npm.
+
 ## Requirements
 
  * Node.js version 0.11.x (for the `harmony` flag which exposes generators)
@@ -25,6 +27,8 @@ $ npm install stweam --save
 // => example.js
 
 var Stweam = require('stweam');
+var stream = require('stream');
+var dest = new stream.PassThrough();
 
 var stweam = new Stweam({
   consumerKey: 'consumerKey',
@@ -33,16 +37,13 @@ var stweam = new Stweam({
   tokenSecret: 'tokenSecret'
 });
 
+// Optionally hook into log messages.
 stweam.on('info', function(msg){
   // Do something with msg.
 });
 
-stweam.on('data', function(tweet){
-  // Do something with tweet.  
-});
-
-// You can also pipe the output to some destination.
-// stweam.pipe(...);
+// stweam is a Stream.
+stweam.pipe(dest);
 
 stweam
   .language('fr');
@@ -88,10 +89,6 @@ Start the app.
 
 
 ## Events
-
-### stweam.on('data', function(result){})
-
-Emitted each time a Tweet object is written to `Stweam`. Note that `Stweam` is also an instance of `stream.Transform`, so Tweet objects can be piped to some destination.
 
 ### stweam.on('info', function(msg){})
 

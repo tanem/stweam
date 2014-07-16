@@ -1,6 +1,6 @@
 {
   "name": "stweam",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Returns tweet data from the public Twitter stream.",
   "main": "index.js",
   "homepage": "https://github.com/tanem/stweam",
@@ -21,7 +21,9 @@
     "twitter",
     "tweets",
     "streams",
-    "streaming"
+    "streaming",
+    "generators",
+    "harmony"
   ],
   "author": {
     "name": "Tane Morgan",
