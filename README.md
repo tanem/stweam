@@ -4,9 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/tanem/stweam/badge.png?branch=master)](https://coveralls.io/r/tanem/stweam?branch=master)
 [![NPM version](https://badge.fury.io/js/stweam.svg)](http://badge.fury.io/js/stweam)
 
-Returns Tweet data from the public Twitter stream.
+Streams the public Twitter stream.
 
-Note that the "raw" Twitter stream is returned, so you'll need to [process it appropriately](https://dev.twitter.com/docs/streaming-apis/processing). Processing was deliberately left out of this module, so that you can choose your poison(s) via npm.
+Note that the output is the "raw" Twitter stream, so you'll need to [process it appropriately](https://dev.twitter.com/docs/streaming-apis/processing). Processing was deliberately left out of this module, so that you can choose your poison(s) via npm.
 
 ## Requirements
 

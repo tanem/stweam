@@ -1,7 +1,7 @@
 {
   "name": "stweam",
-  "version": "0.8.0",
-  "description": "Returns tweet data from the public Twitter stream.",
+  "version": "0.8.1",
+  "description": "Streams the public Twitter stream.",
   "main": "index.js",
   "homepage": "https://github.com/tanem/stweam",
   "bugs": {
