@@ -1,3 +1,7 @@
+## v0.8.2
+ 
+ * Add http status code to log messages
+
 ## v0.8.1
 
  * Update README
