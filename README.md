@@ -57,6 +57,7 @@ To run:
 $ node --harmony example.js
 ```
 
+Also, check out [chirp](https://github.com/tanem/chirp) to see `Stweam` in action.
 
 ## API
 
