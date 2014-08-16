@@ -37,8 +37,13 @@ var stweam = new Stweam({
   tokenSecret: 'tokenSecret'
 });
 
-// Optionally hook into log messages.
+// Optionally hook into log messages...
 stweam.on('info', function(msg){
+  // Do something with msg.
+});
+
+// ... or warn messages.
+stweam.on('warn', function(msg){
   // Do something with msg.
 });
 
@@ -91,9 +96,15 @@ Start the app.
 
 ## Events
 
+Note: I like [Bunyan's opinions](https://github.com/trentm/node-bunyan#levels) on log levels :)
+
 ### stweam.on('info', function(msg){})
 
 Provides detail about regular operation, rather than spamming stdout.
+
+### stweam.on('warn', function(msg){})
+
+Might want to take a closer look at this one.
 
 
 ## Testing
