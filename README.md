@@ -51,8 +51,9 @@ stweam.on('warn', function(msg){
 stweam.pipe(dest);
 
 stweam
-  .language('fr');
+  .language('fr')
   .track('beaker')
+  .follow('12345')
   .start();
 ```
 
@@ -88,6 +89,12 @@ See: [track](https://dev.twitter.com/docs/streaming-apis/parameters#track).
 Set the Tweet language, defaults to `en`.
 
 See: [language](https://dev.twitter.com/docs/streaming-apis/parameters#language)
+
+## stweam.follow(userids)
+
+Set the users whose Tweets will be delivered on the stream.
+
+See: [follow](https://dev.twitter.com/docs/streaming-apis/parameters#follow)
 
 ### stweam.start()
 

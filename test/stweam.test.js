@@ -98,6 +98,7 @@ describe('Stweam', function(){
       var postStub = sinon.stub();
       Stweam.__set__('request', { post: postStub });
       stweam._keywords = 'surfing';
+      stweam._follow = '1234,5678';
 
       stweam._getRequest();
 
@@ -111,7 +112,8 @@ describe('Stweam', function(){
         },
         form: {
           track: 'surfing',
-          language: 'en'
+          language: 'en',
+          follow: '1234,5678'
         }
       });
 
@@ -324,6 +326,15 @@ describe('Stweam', function(){
     it('should update the language property', function(){
       stweam.language('foo');
       expect(stweam._language).to.eql('foo');
+    });
+
+  });
+
+  describe('follow method', function(){
+
+    it('should update the follow property', function(){
+      stweam.follow('12345');
+      expect(stweam._follow).to.be('12345');
     });
 
   });
