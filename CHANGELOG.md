@@ -1,7 +1,11 @@
+## v0.8.4
+
+ * Add warn log level
+ 
 ## v0.8.3
 
  * Add chirp example to README
- 
+
 ## v0.8.2
  
  * Add http status code to log messages
