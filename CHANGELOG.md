@@ -1,7 +1,11 @@
+## v0.8.6
+
+ * Update README
+ 
 ## v0.8.5
 
  * Add `follow` method
- 
+
 ## v0.8.4
 
  * Add warn log level

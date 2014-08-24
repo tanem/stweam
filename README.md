@@ -88,13 +88,13 @@ See: [track](https://dev.twitter.com/docs/streaming-apis/parameters#track).
 
 Set the Tweet language, defaults to `en`.
 
-See: [language](https://dev.twitter.com/docs/streaming-apis/parameters#language)
+See: [language](https://dev.twitter.com/docs/streaming-apis/parameters#language).
 
-## stweam.follow(userids)
+### stweam.follow(userids)
 
 Set the users whose Tweets will be delivered on the stream.
 
-See: [follow](https://dev.twitter.com/docs/streaming-apis/parameters#follow)
+See: [follow](https://dev.twitter.com/docs/streaming-apis/parameters#follow).
 
 ### stweam.start()
 
