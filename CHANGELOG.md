@@ -1,3 +1,7 @@
+## v1.0.1 / 2014-09-30
+
+ * Generate changelog using mkclog
+
 ## v1.0.0 / 2014-09-12
 
  * v1.0.0
