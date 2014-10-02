@@ -1,3 +1,7 @@
+## v1.0.2 / 2014-10-03
+
+ * ([466b3e5](https://github.com/tanem/stweam/commit/466b3e5f215a353310e7181211054c7203822c5c)) Add commit links to CHANGELOG
+
 ## v1.0.1 / 2014-09-30
 
  * ([e4bd6f7](https://github.com/tanem/stweam/commit/e4bd6f7462755f68fece8cb0700d1ef65d3da1f2)) Generate changelog using mkclog
