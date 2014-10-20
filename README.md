@@ -13,13 +13,11 @@ Note that the output is the "raw" Twitter stream, so you'll need to [process it 
  * Node.js version 0.11.x (for the `harmony` flag which exposes generators)
  * Keys obtained from dev.twitter.com after [setting up a new app](https://apps.twitter.com/app/new)
 
-
 ## Installation
 
-```sh
+```
 $ npm install stweam --save
 ```
-
 
 ## Example
 
@@ -59,7 +57,7 @@ stweam
 
 To run:
 
-```sh
+```
 $ node --harmony example.js
 ```
 
@@ -100,7 +98,6 @@ See: [follow](https://dev.twitter.com/docs/streaming-apis/parameters#follow).
 
 Start the app.
 
-
 ## Events
 
 Note: I like [Bunyan's opinions](https://github.com/trentm/node-bunyan#levels) on log levels :)
@@ -113,19 +110,17 @@ Provides detail about regular operation, rather than spamming stdout.
 
 Might want to take a closer look at this one.
 
-
 ## Testing
 
-```sh
+```
 $ make test
 ```
 
 To generate a coverage report:
 
-```sh
+```
 $ make test-cov
 ```
-
 
 ## Credits
 
