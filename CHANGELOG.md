@@ -1,3 +1,7 @@
+## v1.0.3 / 2014-10-21
+
+ * ([1c1e163](https://github.com/tanem/stweam/commit/1c1e16312c15f3421645802fb57b084a14f8f8d9)) Tidy up readme
+
 ## v1.0.2 / 2014-10-03
 
  * ([466b3e5](https://github.com/tanem/stweam/commit/466b3e5f215a353310e7181211054c7203822c5c)) Add commit links to CHANGELOG
