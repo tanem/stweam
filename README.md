@@ -110,7 +110,9 @@ Provides detail about regular operation, rather than spamming stdout.
 
 Might want to take a closer look at this one.
 
-## Testing
+## Tests
+
+To run:
 
 ```
 $ make test
