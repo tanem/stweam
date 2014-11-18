@@ -1,3 +1,7 @@
+## v1.0.5 / 2014-11-18
+
+ * ([7a547d8](https://github.com/tanem/stweam/commit/7a547d82bbcfef4a68a51c4135e2de86a9afc2c0)) Update README
+
 ## v1.0.4 / 2014-11-08
 
  * ([18164a6](https://github.com/tanem/stweam/commit/18164a6db489a08bedb7003278d39f2ff6cf7a25)) Update README

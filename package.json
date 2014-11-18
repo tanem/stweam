@@ -1,6 +1,6 @@
 {
   "name": "stweam",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Streams the public Twitter stream.",
   "main": "index.js",
   "homepage": "https://github.com/tanem/stweam",
