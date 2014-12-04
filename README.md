@@ -15,7 +15,7 @@ Note that the output is the "raw" Twitter stream, so you'll need to [process it 
 
 ## Installation
 
-```sh
+```
 $ npm install stweam --save
 ```
 
@@ -57,7 +57,7 @@ stweam
 
 To run:
 
-```sh
+```
 $ node --harmony example.js
 ```
 
@@ -114,13 +114,13 @@ Might want to take a closer look at this one.
 
 To run:
 
-```sh
+```
 $ make test
 ```
 
 To generate a coverage report:
 
-```sh
+```
 $ make test-cov
 ```
 
