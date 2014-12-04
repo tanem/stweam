@@ -1,3 +1,7 @@
+## v1.0.6 / 2014-12-04
+
+ * ([4d7672a](https://github.com/tanem/stweam/commit/4d7672ab311a42c70f296ac91fbb111ad43500cc)) Ocd
+
 ## v1.0.5 / 2014-11-18
 
  * ([7a547d8](https://github.com/tanem/stweam/commit/7a547d82bbcfef4a68a51c4135e2de86a9afc2c0)) Update README
