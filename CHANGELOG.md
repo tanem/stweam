@@ -1,3 +1,7 @@
+## v1.0.7 / 2015-03-11
+
+ * ([02300cf](https://github.com/tanem/stweam/commit/02300cf9f8ab610888a9646506161f174cd4e6ec)) Update LICENSE
+
 ## v1.0.6 / 2014-12-04
 
  * ([4d7672a](https://github.com/tanem/stweam/commit/4d7672ab311a42c70f296ac91fbb111ad43500cc)) Ocd
