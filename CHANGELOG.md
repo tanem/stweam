@@ -1,3 +1,7 @@
+## 1.0.9 / 2015-10-25
+
+ * ([f8dc8f9](https://github.com/tanem/stweam/commit/f8dc8f98d64be3983526ce3cbc7f7b48fed95865)) Update LICENSE (fixes [#6](https://github.com/tanem/stweam/issues/6))
+
 ## v1.0.7 / 2015-03-11
 
  * ([02300cf](https://github.com/tanem/stweam/commit/02300cf9f8ab610888a9646506161f174cd4e6ec)) Update LICENSE
