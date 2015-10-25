@@ -1,6 +1,14 @@
-## 1.0.9 / 2015-10-25
+## v1.0.10 / 2015-10-26
+
+ * ([a626a4b](https://github.com/tanem/stweam/commit/a626a4b8b34ba862974bd4a4e6816a594742102b)) Switch from jshint to eslint (fixes [#4](https://github.com/tanem/stweam/issues/4))
+
+## v1.0.9 / 2015-10-25
 
  * ([f8dc8f9](https://github.com/tanem/stweam/commit/f8dc8f98d64be3983526ce3cbc7f7b48fed95865)) Update LICENSE (fixes [#6](https://github.com/tanem/stweam/issues/6))
+
+## v1.0.8 / 2015-08-16
+
+ * ([e22ca18](https://github.com/tanem/stweam/commit/e22ca18387bd5ba13627ad70726e6e83a5c5c3b3)) Tweak Makefile
 
 ## v1.0.7 / 2015-03-11
 
@@ -21,9 +29,6 @@
 ## v1.0.3 / 2014-10-21
 
  * ([1c1e163](https://github.com/tanem/stweam/commit/1c1e16312c15f3421645802fb57b084a14f8f8d9)) Tidy up readme
-
-## v1.0.2 / 2014-10-03
-
  * ([466b3e5](https://github.com/tanem/stweam/commit/466b3e5f215a353310e7181211054c7203822c5c)) Add commit links to CHANGELOG
 
 ## v1.0.1 / 2014-09-30
@@ -107,7 +112,7 @@
 
  * ([86c8607](https://github.com/tanem/stweam/commit/86c8607cb8459575b29957a56e04039e3e18ae97)) Update rate limited backoff strategy name
  * ([d5645ca](https://github.com/tanem/stweam/commit/d5645ca6e8449873186d14adbe97e70701be0253)) Add info events
- * ([cfd5b90](https://github.com/tanem/stweam/commit/cfd5b90f85bce4a490e2a242e00b571d418005cd)) Stream tweet text directly to
+ * ([cfd5b90](https://github.com/tanem/stweam/commit/cfd5b90f85bce4a490e2a242e00b571d418005cd)) Stream tweet text directly to Stweam
 
 ## v0.2.1 / 2014-06-28
 
