@@ -36,12 +36,12 @@
     "co-sleep": "0.0.1"
   },
   "devDependencies": {
-    "mocha": "^1.20.1",
-    "expect.js": "^0.3.1",
-    "sinon": "^1.10.2",
-    "rewire": "^2.0.1",
-    "jshint": "^2.5.1",
     "coveralls": "^2.10.1",
-    "istanbul": "git://github.com/gotwarlost/istanbul.git#harmony"
+    "eslint": "^1.7.3",
+    "expect.js": "^0.3.1",
+    "istanbul": "git://github.com/gotwarlost/istanbul.git#harmony",
+    "mocha": "^1.20.1",
+    "rewire": "^2.0.1",
+    "sinon": "^1.10.2"
   }
 }
