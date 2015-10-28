@@ -1,3 +1,7 @@
+## 1.0.11 / 2015-10-29
+
+ * ([ea7d453](https://github.com/tanem/stweam/commit/ea7d45391445705417d5fe8cf1ea170174d732d9)) Add .editorconfig (fixes [#7](https://github.com/tanem/stweam/issues/7))
+
 ## v1.0.10 / 2015-10-26
 
  * ([a626a4b](https://github.com/tanem/stweam/commit/a626a4b8b34ba862974bd4a4e6816a594742102b)) Switch from jshint to eslint (fixes [#4](https://github.com/tanem/stweam/issues/4))
