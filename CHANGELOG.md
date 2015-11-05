@@ -1,3 +1,7 @@
+## v1.0.12 / 2015-11-05
+
+ * ([e378b18](https://github.com/tanem/stweam/commit/e378b181599dd19d33834d64e7c2764053b8717b)) Update README badges (fixes [#10](https://github.com/tanem/stweam/issues/10))
+
 ## 1.0.11 / 2015-10-29
 
  * ([ea7d453](https://github.com/tanem/stweam/commit/ea7d45391445705417d5fe8cf1ea170174d732d9)) Add .editorconfig (fixes [#7](https://github.com/tanem/stweam/issues/7))
