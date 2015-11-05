@@ -1,8 +1,9 @@
 # stweam
 
-[![Build Status](https://travis-ci.org/tanem/stweam.png?branch=master)](https://travis-ci.org/tanem/stweam)
-[![Coverage Status](https://coveralls.io/repos/tanem/stweam/badge.png?branch=master)](https://coveralls.io/r/tanem/stweam?branch=master)
-[![NPM version](https://badge.fury.io/js/stweam.svg)](http://badge.fury.io/js/stweam)
+[![build status](https://img.shields.io/travis/tanem/stweam/master.svg?style=flat-square)](https://travis-ci.org/tanem/stweam)
+[![coverage status](https://img.shields.io/coveralls/tanem/stweam.svg?style=flat-square)](https://coveralls.io/r/tanem/stweam)
+[![npm version](https://img.shields.io/npm/v/stweam.svg?style=flat-square)](https://www.npmjs.com/package/stweam)
+[![npm downloads](https://img.shields.io/npm/dm/stweam.svg?style=flat-square)](https://www.npmjs.com/package/stweam)
 
 Streams the public Twitter stream.
 
