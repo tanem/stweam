@@ -1,3 +1,7 @@
+## v1.0.13 / 2015-11-07
+
+ * ([9bb5870](https://github.com/tanem/stweam/commit/9bb5870e5454aa3eec7df68e4de136ad59031b89)) Use npm run scripts instead of Make (fixes [#1](https://github.com/tanem/stweam/issues/1))
+
 ## v1.0.12 / 2015-11-05
 
  * ([e378b18](https://github.com/tanem/stweam/commit/e378b181599dd19d33834d64e7c2764053b8717b)) Update README badges (fixes [#10](https://github.com/tanem/stweam/issues/10))
