@@ -116,13 +116,13 @@ Might want to take a closer look at this one.
 To run:
 
 ```
-$ make test
+$ npm run test:spec
 ```
 
 To generate a coverage report:
 
 ```
-$ make test-cov
+$ npm run test:cov
 ```
 
 ## Credits

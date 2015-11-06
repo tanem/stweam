@@ -12,7 +12,11 @@
     "url": "git://github.com/tanem/stweam.git"
   },
   "scripts": {
-    "test": "make test-coveralls"
+    "lint": "eslint lib test index.js",
+    "test:spec": "npm run lint && mocha --harmony -b -R spec",
+    "test:cov": "npm run lint && node --harmony $(npm bin)/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "test:cli": "echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID) && npm run lint && node --harmony $(npm bin)/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true",
+    "test": "npm run test:cli"
   },
   "engines": {
     "node": ">= 0.11.0"
