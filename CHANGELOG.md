@@ -1,3 +1,7 @@
+## 1.0.14 / 2016-02-06
+
+ * ([d2ebc58](https://github.com/tanem/stweam/commit/d2ebc58bc55866ad77eddde87a5741234190b169)) Update license (closes [#11](https://github.com/tanem/stweam/issues/11))
+
 ## v1.0.13 / 2015-11-07
 
  * ([9bb5870](https://github.com/tanem/stweam/commit/9bb5870e5454aa3eec7df68e4de136ad59031b89)) Use npm run scripts instead of Make (fixes [#1](https://github.com/tanem/stweam/issues/1))
