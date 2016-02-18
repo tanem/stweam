@@ -1,4 +1,8 @@
-## 1.0.14 / 2016-02-06
+## v1.0.15 / 2016-02-19
+
+ * ([37410b4](https://github.com/tanem/stweam/commit/37410b4c76ca8b915529430cb5bb3f89a6fdc01d)) Add dependency badges (closes [#12](https://github.com/tanem/stweam/issues/12))
+
+## v1.0.14 / 2016-02-06
 
  * ([d2ebc58](https://github.com/tanem/stweam/commit/d2ebc58bc55866ad77eddde87a5741234190b169)) Update license (closes [#11](https://github.com/tanem/stweam/issues/11))
 
