@@ -4,6 +4,8 @@
 [![coverage status](https://img.shields.io/coveralls/tanem/stweam.svg?style=flat-square)](https://coveralls.io/r/tanem/stweam)
 [![npm version](https://img.shields.io/npm/v/stweam.svg?style=flat-square)](https://www.npmjs.com/package/stweam)
 [![npm downloads](https://img.shields.io/npm/dm/stweam.svg?style=flat-square)](https://www.npmjs.com/package/stweam)
+[![dependency status](https://david-dm.org/tanem/stweam.svg?style=flat-square)](https://david-dm.org/tanem/stweam)
+[![devDependency status](https://david-dm.org/tanem/stweam/dev-status.svg?style=flat-square)](https://david-dm.org/tanem/stweam#info=devDependencies)
 
 Streams the public Twitter stream.
 
